@@ -1,0 +1,347 @@
+html {
+  scroll-behavior: smooth;
+}
+body {
+  --dcol: #0B132B;
+  --lcol: #F4FAFF;
+  --dcol__darkened: #152554;
+  --dwhite__darkened: #c1e3ff;
+  min-height: 100vh;
+  background: var(--dcol);
+  color: var(--lcol);
+  font-size: 24px;
+  font-family: 'Rubik', sans-serif;
+  overscroll-behavior: none;
+  padding-bottom: 30vh;
+}
+body * {
+  z-index: 10;
+}
+body.theme-light {
+  --dcol: #F4FAFF;
+  --lcol: #0B132B;
+  --dcol__darkened: #c1e3ff;
+  --dwhite__darkened: #152554;
+}
+nav {
+  margin-top: 10px;
+  display: block;
+  width: 100%;
+  z-index: 11;
+}
+nav .nav {
+  display: flex;
+  justify-content: flex-end;
+  gap: 10px;
+  margin: 10px;
+  margin-top: 0;
+}
+.btn {
+  border: 2px solid #3185FC;
+  padding: 10px 15px;
+  border-radius: 10px;
+  color: inherit;
+  text-decoration: none;
+  transition: background-color 0.3s;
+  background: var(--dcol);
+}
+.btn:hover {
+  background-color: rgba(49, 133, 252, 0.3);
+}
+.btn:active {
+  background-color: #3185FC;
+}
+header {
+  margin: 10px;
+  display: flex;
+  height: 90vh;
+  align-items: center;
+  padding-left: 15%;
+  padding-right: 15%;
+}
+@media screen and (max-width: 800px) {
+  header {
+    padding-left: 5%;
+    padding-right: 5%;
+  }
+}
+header .header-label {
+  color: #3185FC;
+  margin: 0;
+  font-size: 35px;
+}
+header h1 {
+  font-size: 170px;
+  line-height: 1;
+  margin: 0;
+}
+@media screen and (max-width: 750px) {
+  header h1 {
+    font-size: 110px;
+  }
+}
+.socials {
+  position: fixed;
+  bottom: 15%;
+  border: 2px solid #3185FC;
+  border-radius: 0 10px 10px 0;
+  border-left: none;
+  padding: 10px;
+  transition: 0.3s;
+  background: var(--dcol);
+}
+@media screen and (max-width: 800px) {
+  .socials {
+    display: none;
+  }
+}
+.socials:hover {
+  padding-left: 15px;
+}
+.socials a {
+  display: block;
+}
+.socials a svg {
+  width: 30px;
+  border: 4px solid transparent;
+  border-radius: 100px;
+}
+.socials a svg:hover path {
+  fill: #3185FC;
+}
+.socials a svg path {
+  transition: fill 0.3s;
+  fill: var(--lcol);
+}
+.email {
+  position: fixed;
+  writing-mode: vertical-rl;
+  text-orientation: mixed;
+  right: 0px;
+  bottom: 15%;
+  z-index: 15;
+  border: 2px solid #3185FC;
+  padding: 10px;
+  border-radius: 10px 0px 0px 10px;
+  border-right: none;
+  transition: padding-right 0.3s;
+}
+@media screen and (max-width: 800px) {
+  .email {
+    display: none;
+  }
+}
+.email:hover {
+  padding-right: 15px;
+}
+.email a {
+  color: var(--lcol);
+}
+.hiddenBtn {
+  position: absolute;
+  height: 50px;
+  width: 50px;
+  transform: translateY(-50%);
+  left: 210px;
+  top: 150px;
+  cursor: pointer;
+  z-index: 200;
+}
+.target {
+  position: absolute;
+  height: 1px;
+  width: 20px;
+  background: var(--lcol);
+  transform-origin: 0 0;
+  z-index: 1;
+}
+a:not(.btn):not(.prevspec) {
+  color: #3185FC;
+  background-image: linear-gradient(#3185FC, #3185FC);
+  background-repeat: no-repeat;
+  background-position: bottom left;
+  background-size: 0% 2px;
+  transition: background-size 300ms ease-in-out;
+}
+a:not(.btn):not(.prevspec):hover {
+  background-size: 100% 2px;
+}
+h2 {
+  font-size: 50px;
+}
+section {
+  padding: 0% 15%;
+  min-height: 70vh;
+}
+@media screen and (max-width: 800px) {
+  section {
+    padding-left: 5%;
+    padding-right: 5%;
+  }
+}
+section .project {
+  display: grid;
+  transform: matrix3d(1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1);
+  grid-template-columns: repeat(12, 1fr);
+  -webkit-box-align: center;
+  align-items: center;
+  padding-bottom: 5%;
+}
+@media screen and (max-width: 700px) {
+  section .project {
+    display: block;
+    transform: unset;
+    grid-template-columns: unset;
+    -webkit-box-align: unset;
+  }
+}
+section .project.lr .image {
+  grid-area: 1 / 1 / -1 / -6;
+}
+section .project.lr .info {
+  grid-area: 1 / 7 / -1 / 13;
+  text-align: right;
+}
+section .project .image {
+  grid-area: 1 / 6 / -1 / -1;
+  position: relative;
+  z-index: 9;
+}
+section .project .image img {
+  width: 100%;
+  filter: grayscale(1);
+  transition: filter 0.3s;
+}
+section .project .image img:hover {
+  filter: grayscale(0);
+}
+section .project .info {
+  position: relative;
+  grid-area: 1 / 1 / -1 / 7;
+}
+section .project .info .label {
+  font-size: 18px;
+  margin: 0;
+}
+section .project .info h3 {
+  margin: 10px 0;
+  line-height: 1;
+  font-size: 48px;
+  color: #3185FC;
+}
+section .project .info .tools svg {
+  height: 22px;
+  padding: 0px 5px;
+}
+section .project .info .tools svg path {
+  fill: var(--lcol);
+}
+section .project .info .tools p,
+section .project .info .tools a {
+  margin: 0;
+  font-size: 18px;
+  display: inline-block;
+}
+section .project .info .tools p::after,
+section .project .info .tools a::after {
+  content: ',';
+}
+section .project .info .tools p:nth-last-of-type(1)::after,
+section .project .info .tools a:nth-last-of-type(1)::after {
+  content: '';
+}
+section .project .info .block {
+  background: var(--dcol__darkened);
+  padding: 15px;
+  border-radius: 10px;
+  margin: 10px 0;
+}
+section .project .info .block p {
+  margin: 0;
+  font-size: 20px;
+}
+section .graphset .progress {
+  display: flex;
+  justify-content: space-between;
+  padding: 10px;
+  margin-bottom: 20px;
+}
+section .graphset .progress svg {
+  max-height: 35px;
+}
+section .graphset .progress svg path {
+  fill: var(--lcol);
+}
+section .graphset .progress.html {
+  width: 100%;
+  background-color: #e44e26;
+}
+section .graphset .progress.html::after {
+  content: '100%';
+}
+section .graphset .progress.css {
+  width: 90%;
+  background-color: #1b6fb4;
+}
+section .graphset .progress.css::after {
+  content: '90%';
+}
+section .graphset .progress.js {
+  width: 90%;
+  background-color: #efd919;
+}
+section .graphset .progress.js::after {
+  content: '90%';
+}
+section .graphset .progress.node {
+  width: 85%;
+  background-color: #7fc728;
+}
+section .graphset .progress.node::after {
+  content: '85%';
+}
+section .graphset .progress.php {
+  width: 80%;
+  background-color: #596aa6;
+}
+section .graphset .progress.php::after {
+  content: '80%';
+}
+section .graphset .progress.python {
+  width: 60%;
+  background-color: #ffd543;
+}
+section .graphset .progress.python::after {
+  content: '60%';
+}
+section .graphset .progress.docn {
+  width: 90%;
+  background-color: #0069FF;
+}
+section .graphset .progress.docn::after {
+  content: '90%';
+}
+section .graphset .progress.jekyll {
+  width: 80%;
+  background-color: #CC0000;
+}
+section .graphset .progress.jekyll::after {
+  content: '80%';
+}
+section .graphset .progress.gh {
+  width: 90%;
+  background-color: #4078c0;
+}
+section .graphset .progress.gh::after {
+  content: '90%';
+}
+section#contact svg {
+  height: 22px;
+  margin-right: 10px;
+}
+section#contact svg path {
+  fill: var(--lcol);
+}
+section#contact a {
+  text-decoration: none;
+}
